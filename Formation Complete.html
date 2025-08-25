@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Complète : Crée ton site web avec Claude AI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        /* HEADER DE COUVERTURE */
+        .cover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #6366f1 100%);
+            color: white;
+            padding: 60px 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 50%);
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cover .rocket {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .cover h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+        
+        .cover .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: 400;
+            opacity: 0.95;
+            line-height: 1.3;
+        }
+        
+        .cover .highlight-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .cover .author {
+            margin-top: 40px;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        /* TABLE DES MATIÈRES */
+        .toc-section {
+            padding: 40px 50px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+        }
+        
+        .toc-section h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .toc-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #3b82f6;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+        
+        .toc-item:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: #1e3a8a;
+        }
+        
+        /* SECTIONS PRINCIPALES */
+        .section {
+            padding: 50px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #6366f1;
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #f59e0b;
+        }
+        
+        .section-header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .section-header h2 {
+            font-size: 2em;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            font-size: 1.1em;
+            color: #64748b;
+            font-weight: 400;
+        }
+        
+        /* INTRO SECTION */
+        .intro-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+            border-left: 6px solid #3b82f6;
+        }
+        
+        .intro-box h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+        
+        .intro-box p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        .feature-card .emoji {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        /* LEARNING SECTION */
+        .learning-section {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+        }
+        
+        .learning-section h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .learning-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .learning-list li {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #10b981;
+        }
+        
+        .learning-list li::before {
+            content: "✅";
+            margin-right: 15px;
+            font-size: 1.3em;
+            flex-shrink: 0;
+        }
+        
+        .learning-list li strong {
+            color: #065f46;
+        }
+        
+        /* ÉTAPES */
+        .steps-section h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #1e3a8a;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 25px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f59e0b);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.4em;
+            margin-right: 20px;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .step-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        
+        .step-content {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        
+        .step-content h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin: 20px 0 10px 0;
+        }
+        
+        .step-content h4 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #374151;
+            margin: 15px 0 8px 0;
+        }
+        
+        .step-content ul, .step-content ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        .step-content li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .step-details {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .code-block {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        
+        /* BONUS SECTION */
+        .bonus-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+            border: 2px solid #f59e0b;
+        }
+        
+        .bonus-section h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .bonus-section h3 {
+            color: #92400e;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+        
+        .bonus-section h4 {
+            color: #b45309;
+            font-weight: 600;
+            margin: 15px 0 8px 0;
+        }
+        
+        /* CONTACT SECTION */
+        .contact-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .contact-section h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-item .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .contact-item p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        /* PROBLÈMES COURANTS */
+        .problems-section {
+            background: #fff7ed;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-left: 5px solid #ea580c;
+        }
+        
+        .problems-section h3 {
+            color: #ea580c;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .problems-section h4 {
+            color: #c2410c;
+            font-weight: 600;
+            margin: 15px 0 8px 0;
+        }
+        
+        .problems-section strong {
+            color: #9a3412;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .section {
+                padding: 30px 25px;
+            }
+            
+            .toc-section {
+                padding: 30px 25px;
+            }
+            
+            .cover {
+                padding: 40px 25px;
+            }
+            
+            .toc-grid,
+            .features-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cover h1 {
+                font-size: 2.2em;
+            }
+            
+            .section-header h1 {
+                font-size: 2em;
+            }
+            
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+            }
+        }
+        
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                padding: 20px;
+            }
+            
+            .step-card {
+                page-break-inside: avoid;
+                margin: 15px 0;
+                box-shadow: none;
+                border: 1px solid #e5e7eb;
+            }
+            
+            .toc-item {
+                box-shadow: none;
+                border: 1px solid #e5e7eb;
+            }
+            
+            .cover {
+                page-break-after: always;
+            }
+            
+            .section-header h1,
+            .section-header h2 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- PAGE DE COUVERTURE -->
+    <div class="cover">
+        <div class="cover-content">
+            <span class="rocket">🚀</span>
+            <h1>FORMATION COMPLÈTE : Crée ton site web avec Claude AI</h1>
+            <p class="subtitle">Une landing page professionnelle, sans coder, sans payer, et avec mon aide</p>
+            
+            <div class="highlight-box">
+                <h2 style="font-size: 1.4em; margin-bottom: 10px;">Formation 100% pratique</h2>
+                <p>Guide détaillé + Accompagnement personnalisé</p>
+            </div>
+            
+            <div class="author">
+                <h3>SOSSOUKPE Boris</h3>
+                <p>📱 WhatsApp : +229 54 71 06 30<br>
+                ✈️ Telegram : https://t.me/borissossoukpe<br>
+                📧 Email : borissossoukpe@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE DES MATIÈRES -->
+    <div class="toc-section" id="table-des-matieres">
+        <h2>📋 TABLE DES MATIÈRES</h2>
+        <div class="toc-grid">
+            <a href="#introduction" class="toc-item">
+                💡 1. Introduction
+            </a>
+            <a href="#prerequis" class="toc-item">
+                🔧 2. Prérequis et outils nécessaires
+            </a>
+            <a href="#etape-1" class="toc-item">
+                🎨 3. ÉTAPE 1 : Générer ton site avec Claude AI
+            </a>
+            <a href="#etape-2" class="toc-item">
+                👀 4. ÉTAPE 2 : Tester et modifier ton site
+            </a>
+            <a href="#etape-3" class="toc-item">
+                🌐 5. ÉTAPE 3 : Héberger sur GitHub Pages
+            </a>
+            <a href="#etape-4" class="toc-item">
+                🌍 6. ÉTAPE 4 : Obtenir un nom de domaine gratuit
+            </a>
+            <a href="#etape-5" class="toc-item">
+                🆘 7. ÉTAPE 5 : Support et dépannage
+            </a>
+            <a href="#bonus" class="toc-item">
+                🎁 8. BONUS : Templates et astuces avancées
+            </a>
+        </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section" id="introduction">
+        <div class="section-header">
+            <h1>💡 INTRODUCTION</h1>
+        </div>
+        
+        <div class="intro-box">
+            <p>Tu veux créer un site web <span class="highlight-text">sans coder</span>, sans payer d'hébergement, et sans dépendre de développeurs ?</p>
+            
+            <p>Grâce à cette formation, tu vas découvrir comment une IA peut générer ton site pour toi, comment l'héberger gratuitement, obtenir un nom de domaine pro, et le mettre en ligne en quelques minutes.</p>
+            
+            <p><strong>Pas besoin d'expérience. Pas besoin de logiciels compliqués.</strong> Juste un peu de logique et les bons outils.</p>
+        </div>
+
+        <div class="learning-section">
+            <h2>🎯 Ce que tu vas apprendre</h2>
+            <ul class="learning-list">
+                <li>Créer une landing page moderne avec <strong>Claude AI</strong></li>
+                <li>Tester ton site en quelques secondes</li>
+                <li>L'héberger gratuitement avec <strong>GitHub Pages</strong></li>
+                <li>Obtenir un <strong>nom de domaine gratuit avec Freenom</strong></li>
+                <li>Personnaliser les couleurs, images, boutons, etc.</li>
+                <li>Recevoir un <strong>accompagnement personnel</strong> pour t'aider</li>
+            </ul>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="emoji">💡</span>
+                <h3>Ultra rapide</h3>
+                <p>Ton site est prêt en 15 à 30 minutes</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji">🛠️</span>
+                <h3>Personnalisable facilement</h3>
+                <p>Change tout sans code</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji">📱</span>
+                <h3>Responsive</h3>
+                <p>Fonctionne sur mobile et PC</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji">💸</span>
+                <h3>100% gratuit</h3>
+                <p>Hébergement + domaine inclus</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji">🎨</span>
+                <h3>Prêt à utiliser</h3>
+                <p>Pour vendre, te présenter, etc.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRÉREQUIS -->
+    <div class="section" id="prerequis">
+        <div class="section-header">
+            <h1>🔧 PRÉREQUIS ET OUTILS NÉCESSAIRES</h1>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title">Ce dont tu as besoin :</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li><strong>Un ordinateur ou smartphone</strong> avec connexion internet</li>
+                    <li><strong>Un compte Claude AI</strong> (gratuit sur claude.ai)</li>
+                    <li><strong>Un compte GitHub</strong> (gratuit sur github.com)</li>
+                    <li><strong>Un navigateur web</strong> (Chrome, Firefox, Safari...)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title">Comptes à créer AVANT de commencer :</div>
+            </div>
+            <div class="step-content">
+                <ul>
+                    <li><strong>Claude AI</strong> : https://claude.ai (avec ton email)</li>
+                    <li><strong>GitHub</strong> : https://github.com (choisis un nom d'utilisateur simple)</li>
+                    <li><strong>Freenom</strong> : https://freenom.com (pour le domaine gratuit)</li>
+                </ul>
+                <div class="step-details">
+                    <strong>⏱️ Temps estimé pour créer les comptes : 10 minutes</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 1 -->
+    <div class="section" id="etape-1">
+        <div class="section-header">
+            <h1>🎨 ÉTAPE 1 : GÉNÉRER TON SITE AVEC CLAUDE AI</h1>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1.1</div>
+                <div class="step-title">Se connecter à Claude AI</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Va sur https://claude.ai</li>
+                    <li>Connecte-toi avec ton compte</li>
+                    <li>Clique sur "New Chat" pour commencer une nouvelle conversation</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1.2</div>
+                <div class="step-title">Le prompt magique pour générer ton site</div>
+            </div>
+            <div class="step-content">
+                <p>Copie-colle exactement ce prompt dans Claude AI (remplace les éléments entre [crochets] par tes informations) :</p>
+                
+                <div class="code-block">Je veux que tu crées un site web moderne et professionnel pour moi. Voici mes informations :
+
+- Nom/Entreprise : [TON NOM OU NOM DE TON BUSINESS]
+- Activité : [CE QUE TU FAIS - ex: Coach, Consultant, Service, etc.]
+- Description courte : [1-2 phrases sur ce que tu proposes]
+- Couleur préférée : [ex: bleu, vert, rouge, ou laisse Claude choisir]
+- Contact WhatsApp : [TON NUMÉRO]
+- Email : [TON EMAIL]
+
+Crée-moi une landing page complète avec :
+- Design moderne et attractif
+- Section hero avec titre accrocheur
+- Mes services/offres
+- Témoignages (tu peux en inventer 2-3)
+- Section contact
+- Footer
+- Responsive (mobile et desktop)
+- Animations CSS subtiles
+
+Le code doit être en HTML, CSS et JavaScript dans un seul fichier. Assure-toi que tout fonctionne parfaitement.</div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1.3</div>
+                <div class="step-title">Récupérer et sauvegarder le code</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Claude va te générer un code HTML complet</li>
+                    <li><strong>COPIE TOUT LE CODE</strong> (du <code>&lt;!DOCTYPE html&gt;</code> jusqu'à <code>&lt;/html&gt;</code>)</li>
+                    <li>Ouvre le Bloc-notes (Windows) ou TextEdit (Mac)</li>
+                    <li>Colle le code</li>
+                    <li>Sauvegarde le fichier sous le nom <code>index.html</code> sur ton Bureau</li>
+                </ol>
+                <div class="step-details">
+                    <strong>⚠️ IMPORTANT :</strong> Le fichier DOIT s'appeler exactement <code>index.html</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1.4</div>
+                <div class="step-title">Personnaliser le contenu</div>
+            </div>
+            <div class="step-content">
+                <p>Si tu veux modifier quelque chose, retourne sur Claude et dis :</p>
+                <div class="code-block">Peux-tu modifier [ÉLÉMENT À CHANGER] dans le site ?
+Par exemple : "Peux-tu changer la couleur principale en rouge ?"</div>
+                <p>Claude te donnera le code mis à jour.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 2 -->
+    <div class="section" id="etape-2">
+        <div class="section-header">
+            <h1>👀 ÉTAPE 2 : TESTER ET MODIFIER TON SITE</h1>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2.1</div>
+                <div class="step-title">Tester ton site localement</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Trouve ton fichier <code>index.html</code> sur ton Bureau</li>
+                    <li><strong>Double-clique dessus</strong> → Il s'ouvre dans ton navigateur</li>
+                    <li>Vérifie que tout fonctionne :
+                        <ul>
+                            <li>Les couleurs te plaisent ?</li>
+                            <li>Le texte est correct ?</li>
+                            <li>Les boutons fonctionnent ?</li>
+                            <li>Ça ressemble à ce que tu veux ?</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2.2</div>
+                <div class="step-title">Tester sur mobile</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Réduis la fenêtre de ton navigateur pour simuler un mobile</li>
+                    <li>Ou va dans les outils développeur (F12) et clique sur l'icône mobile</li>
+                    <li>Vérifie que tout s'affiche bien</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2.3</div>
+                <div class="step-title">Modifications courantes</div>
+            </div>
+            <div class="step-content">
+                <p>Si tu veux changer quelque chose, voici les modifications les plus demandées :</p>
+
+                <h4>Changer les couleurs</h4>
+                <p>Retourne sur Claude et demande :</p>
+                <div class="code-block">Peux-tu changer la couleur principale de [COULEUR ACTUELLE] vers [NOUVELLE COULEUR] ?</div>
+
+                <h4>Modifier le texte</h4>
+                <div class="code-block">Peux-tu remplacer le titre "[ANCIEN TITRE]" par "[NOUVEAU TITRE]" ?</div>
+
+                <h4>Ajouter une section</h4>
+                <div class="code-block">Peux-tu ajouter une section "À propos" avec [TON TEXTE] ?</div>
+
+                <h4>Changer les images</h4>
+                <div class="code-block">Peux-tu remplacer l'image actuelle par une image de [DESCRIPTION] ? 
+Utilise une image gratuite d'Unsplash.</div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2.4</div>
+                <div class="step-title">Sauvegarder la version finale</div>
+            </div>
+            <div class="step-content">
+                <p>Une fois que tu es satisfait :</p>
+                <ol>
+                    <li>Copie le code final de Claude</li>
+                    <li>Remplace le contenu de ton fichier <code>index.html</code></li>
+                    <li>Sauvegarde</li>
+                    <li>Re-teste en ouvrant le fichier dans ton navigateur</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 3 -->
+    <div class="section" id="etape-3">
+        <div class="section-header">
+            <h1>🌐 ÉTAPE 3 : HÉBERGER SUR GITHUB PAGES</h1>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3.1</div>
+                <div class="step-title">Créer un repository GitHub</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Va sur https://github.com</li>
+                    <li>Connecte-toi à ton compte</li>
+                    <li>Clique sur le bouton vert <strong>"New"</strong> (en haut à gauche)</li>
+                    <li>Nomme ton repository : <code>[ton-nom].github.io</code><br>
+                        Exemple : <code>boris-site.github.io</code></li>
+                    <li>✅ Coche <strong>"Public"</strong></li>
+                    <li>✅ Coche <strong>"Add a README file"</strong></li>
+                    <li>Clique sur <strong>"Create repository"</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3.2</div>
+                <div class="step-title">Uploader ton fichier</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Dans ton nouveau repository, clique sur <strong>"Add file"</strong> → <strong>"Upload files"</strong></li>
+                    <li>Glisse ton fichier <code>index.html</code> dans la zone ou clique <strong>"choose your files"</strong></li>
+                    <li>Ajoute un message : "Premier site web"</li>
+                    <li>Clique sur <strong>"Commit changes"</strong> (bouton vert)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3.3</div>
+                <div class="step-title">Activer GitHub Pages</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Dans ton repository, clique sur l'onglet <strong>"Settings"</strong></li>
+                    <li>Descends jusqu'à la section <strong>"Pages"</strong> (dans le menu de gauche)</li>
+                    <li>Dans <strong>"Source"</strong>, sélectionne <strong>"Deploy from a branch"</strong></li>
+                    <li>Sélectionne <strong>"main"</strong> branch</li>
+                    <li>Laisse <strong>"/ (root)"</strong></li>
+                    <li>Clique sur <strong>"Save"</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3.4</div>
+                <div class="step-title">Accéder à ton site</div>
+            </div>
+            <div class="step-content">
+                <p><strong>🎉 Félicitations !</strong> Ton site est maintenant en ligne !</p>
+                <ul>
+                    <li>URL de ton site : <code>https://[ton-nom].github.io</code></li>
+                    <li>Exemple : <code>https://boris-site.github.io</code></li>
+                </ul>
+                <div class="step-details">
+                    <strong>⏱️ Attention :</strong> Ça peut prendre 5-10 minutes avant que le site soit accessible.
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3.5</div>
+                <div class="step-title">Mettre à jour ton site</div>
+            </div>
+            <div class="step-content">
+                <p>Pour modifier ton site plus tard :</p>
+                <ol>
+                    <li>Modifie ton fichier <code>index.html</code> avec Claude</li>
+                    <li>Va dans ton repository GitHub</li>
+                    <li>Clique sur <code>index.html</code></li>
+                    <li>Clique sur l'icône ✏️ (Edit)</li>
+                    <li>Remplace tout le contenu par ton nouveau code</li>
+                    <li><strong>"Commit changes"</strong></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 4 -->
+    <div class="section" id="etape-4">
+        <div class="section-header">
+            <h1>🌍 ÉTAPE 4 : OBTENIR UN NOM DE DOMAINE GRATUIT</h1>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4.1</div>
+                <div class="step-title">S'inscrire sur Freenom</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Va sur https://freenom.com</li>
+                    <li>Clique sur <strong>"Sign Up"</strong></li>
+                    <li>Créé ton compte (utilise une vraie adresse email)</li>
+                    <li>Confirme ton email</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4.2</div>
+                <div class="step-title">Chercher un domaine disponible</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Dans la barre de recherche, tape le nom que tu veux<br>
+                        Exemple : <code>monsite</code>, <code>boris-web</code>, <code>mon-business</code></li>
+                    <li>Clique sur <strong>"Check Availability"</strong></li>
+                    <li>Choisis une extension gratuite : <code>.tk</code>, <code>.ml</code>, <code>.ga</code>, <code>.cf</code></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4.3</div>
+                <div class="step-title">Enregistrer ton domaine</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Clique sur <strong>"Get it now!"</strong> à côté du domaine choisi</li>
+                    <li>Sélectionne <strong>"Use DNS"</strong> → <strong>"Use custom DNS"</strong></li>
+                    <li>Dans les champs DNS, mets :
+                        <ul>
+                            <li><strong>DNS 1</strong> : <code>185.199.108.153</code></li>
+                            <li><strong>DNS 2</strong> : <code>185.199.109.153</code></li>
+                            <li><strong>DNS 3</strong> : <code>185.199.110.153</code></li>
+                            <li><strong>DNS 4</strong> : <code>185.199.111.153</code></li>
+                        </ul>
+                    </li>
+                    <li>Période : <strong>12 mois</strong> (gratuit)</li>
+                    <li>Clique <strong>"Continue"</strong></li>
+                    <li>Finalise la commande</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4.4</div>
+                <div class="step-title">Configurer le domaine avec GitHub</div>
+            </div>
+            <div class="step-content">
+                <ol>
+                    <li>Retourne sur ton repository GitHub</li>
+                    <li>Va dans <strong>Settings</strong> → <strong>Pages</strong></li>
+                    <li>Dans <strong>"Custom domain"</strong>, écris ton nouveau domaine<br>
+                        Exemple : <code>monsite.tk</code></li>
+                    <li>Clique <strong>"Save"</strong></li>
+                    <li>✅ Coche <strong>"Enforce HTTPS"</strong> (attends 5 minutes avant)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4.5</div>
+                <div class="step-title">Tester ton domaine</div>
+            </div>
+            <div class="step-content">
+                <div class="step-details">
+                    <strong>⏱️ Patience :</strong> Ça peut prendre 24-48h pour que tout fonctionne parfaitement.
+                </div>
+                <p>Test :</p>
+                <ul>
+                    <li>Tape ton domaine dans le navigateur</li>
+                    <li>Si ça ne marche pas immédiatement, c'est normal !</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 5 -->
+    <div class="section" id="etape-5">
+        <div class="section-header">
+            <h1>🆘 ÉTAPE 5 : SUPPORT ET DÉPANNAGE</h1>
+        </div>
+
+        <div class="problems-section">
+            <h3>Problèmes courants et solutions</h3>
+
+            <h4>❌ Mon site ne s'affiche pas sur GitHub</h4>
+            <p><strong>Solutions :</strong></p>
+            <ol>
+                <li>Vérifie que ton fichier s'appelle exactement <code>index.html</code></li>
+                <li>Attends 10-15 minutes</li>
+                <li>Vide le cache de ton navigateur (Ctrl+F5)</li>
+                <li>Vérifie que GitHub Pages est bien activé dans Settings</li>
+            </ol>
+
+            <h4>❌ Mon domaine Freenom ne fonctionne pas</h4>
+            <p><strong>Solutions :</strong></p>
+            <ol>
+                <li>Attends 24-48h (c'est normal)</li>
+                <li>Vérifie que tu as bien mis les DNS GitHub</li>
+                <li>Assure-toi que le domaine est bien configuré dans GitHub Settings</li>
+            </ol>
+
+            <h4>❌ Mon site ne s'affiche pas bien sur mobile</h4>
+            <p><strong>Solutions :</strong></p>
+            <ol>
+                <li>Demande à Claude de corriger le responsive</li>
+                <li>Ajoute cette ligne dans ton HTML (entre les balises <code>&lt;head&gt;</code>) :</li>
+            </ol>
+            <div class="code-block">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+
+            <h4>❌ Je veux changer quelque chose sur mon site</h4>
+            <p><strong>Solution :</strong></p>
+            <ol>
+                <li>Va sur Claude AI</li>
+                <li>Demande la modification</li>
+                <li>Copie le nouveau code</li>
+                <li>Met à jour ton fichier <code>index.html</code> sur GitHub</li>
+            </ol>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title">Me contacter pour de l'aide</div>
+            </div>
+            <div class="step-content">
+                <p>Si tu es bloqué à n'importe quelle étape :</p>
+                
+                <div class="contact-grid" style="background: none; padding: 0;">
+                    <div class="contact-item" style="background: #f8fafc; color: #1a1a1a;">
+                        <span class="icon">📱</span>
+                        <h3>WhatsApp</h3>
+                        <p>+229 54 71 06 30</p>
+                    </div>
+                    <div class="contact-item" style="background: #f8fafc; color: #1a1a1a;">
+                        <span class="icon">✈️</span>
+                        <h3>Telegram</h3>
+                        <p>https://t.me/borissossoukpe</p>
+                    </div>
+                    <div class="contact-item" style="background: #f8fafc; color: #1a1a1a;">
+                        <span class="icon">📧</span>
+                        <h3>Email</h3>
+                        <p>borissossoukpe@gmail.com</p>
+                    </div>
+                </div>
+
+                <p><strong>Je réponds généralement en moins de 2h !</strong></p>
+
+                <p>Quand tu me contactes, précise :</p>
+                <ul>
+                    <li>À quelle étape tu es bloqué</li>
+                    <li>Le message d'erreur (s'il y en a un)</li>
+                    <li>Des captures d'écran si possible</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- BONUS -->
+    <div class="section" id="bonus">
+        <div class="section-header">
+            <h1>🎁 BONUS : TEMPLATES ET ASTUCES AVANCÉES</h1>
+        </div>
+
+        <div class="bonus-section">
+            <h2>🔥 Templates de prompts prêts à utiliser</h2>
+
+            <h3>Pour un site e-commerce</h3>
+            <div class="code-block">Crée-moi un site e-commerce moderne pour vendre [PRODUIT]. Include :
+- Header avec logo et navigation
+- Hero section avec produit principal
+- Galerie de produits (6 produits)
+- Section témoignages
+- Footer avec infos légales
+- Couleurs : [COULEUR PRINCIPALE]
+- Style moderne et professionnel</div>
+
+            <h3>Pour un CV en ligne</h3>
+            <div class="code-block">Crée-moi un CV/portfolio en ligne avec :
+- Header avec ma photo et infos contact
+- Section à propos
+- Expériences professionnelles
+- Compétences (avec barres de progression)
+- Portfolio/projets (avec images)
+- Formulaire de contact
+- Design moderne, couleur : [COULEUR]</div>
+
+            <h3>Pour un blog</h3>
+            <div class="code-block">Crée-moi un blog moderne avec :
+- Header avec navigation
+- Section articles récents (3 articles fictifs)
+- Sidebar avec catégories
+- Section newsletter
+- Footer
+- Design responsive et moderne
+- Couleur principale : [COULEUR]</div>
+        </div>
+
+        <div class="bonus-section">
+            <h2>🎨 Personnalisations avancées</h2>
+
+            <h3>Ajouter Google Analytics</h3>
+            <p>Demande à Claude :</p>
+            <div class="code-block">Peux-tu ajouter Google Analytics à mon site ? 
+Mon ID de suivi est : [TON-ID-GA]</div>
+
+            <h3>Ajouter un chat WhatsApp</h3>
+            <div class="code-block">Peux-tu ajouter un bouton WhatsApp flottant qui ouvre une conversation avec le numéro [TON NUMÉRO] ?</div>
+
+            <h3>Optimiser pour le SEO</h3>
+            <div class="code-block">Peux-tu optimiser mon site pour le référencement Google ? 
+Ajoute les meta tags, Open Graph, et structure les données.
+Mon site parle de : [TON ACTIVITÉ]</div>
+        </div>
+
+        <div class="bonus-section">
+            <h2>💡 Idées de projets à créer ensuite</h2>
+            
+            <ol>
+                <li><strong>Site vitrine pour ton business</strong> - Présente tes services</li>
+                <li><strong>Landing page de vente</strong> - Pour un produit spécifique</li>
+                <li><strong>CV interactif</strong> - Pour chercher un emploi</li>
+                <li><strong>Blog personnel</strong> - Partage tes connaissances</li>
+                <li><strong>Site événement</strong> - Pour un mariage, anniversaire...</li>
+                <li><strong>Portfolio créatif</strong> - Montre tes créations</li>
+                <li><strong>Site restaurant</strong> - Avec menu et réservations</li>
+                <li><strong>Page de capture email</strong> - Pour construire une liste</li>
+                <li><strong>Site associatif</strong> - Pour une ONG ou association</li>
+                <li><strong>Mini e-commerce</strong> - Vendre quelques produits</li>
+            </ol>
+        </div>
+
+        <div class="bonus-section">
+            <h2>🚀 Astuces de pro</h2>
+
+            <h3>Accélérer le processus</h3>
+            <ul>
+                <li>Prépare toutes tes infos avant (textes, images, couleurs)</li>
+                <li>Utilise des images gratuites : Unsplash, Pexels</li>
+                <li>Teste toujours sur mobile ET desktop</li>
+                <li>Sauvegarde régulièrement tes codes</li>
+            </ul>
+
+            <h3>Améliorer le design</h3>
+            <ul>
+                <li>Reste simple : moins c'est mieux</li>
+                <li>Utilise maximum 3 couleurs</li>
+                <li>Assure-toi que les textes sont lisibles</li>
+                <li>Teste la vitesse de chargement</li>
+            </ul>
+
+            <h3>Promouvoir ton site</h3>
+            <ul>
+                <li>Partage l'URL sur tes réseaux sociaux</li>
+                <li>Ajoute l'URL dans ta signature email</li>
+                <li>Mets l'URL sur tes cartes de visite</li>
+                <li>Référence ton site sur Google My Business</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- RÉCAPITULATIF ET SUPPORT -->
+    <div class="section">
+        <div class="section-header">
+            <h1>📞 RÉCAPITULATIF ET SUPPORT</h1>
+        </div>
+
+        <div class="learning-section">
+            <h2>✅ Checklist finale</h2>
+            <p>Avant de considérer que c'est terminé, vérifie :</p>
+            <ul class="learning-list">
+                <li>Mon fichier <code>index.html</code> fonctionne en local</li>
+                <li>Mon site est en ligne sur <code>[mon-nom].github.io</code></li>
+                <li>Mon domaine personnalisé fonctionne (optionnel)</li>
+                <li>Le site s'affiche bien sur mobile</li>
+                <li>Toutes mes informations sont correctes</li>
+                <li>Les liens fonctionnent</li>
+            </ul>
+        </div>
+
+        <div class="learning-section">
+            <h2>🎯 Ce que tu as appris</h2>
+            <p><strong>🎉 Félicitations !</strong> Tu maîtrises maintenant :</p>
+            <ul class="learning-list">
+                <li>La génération de sites avec l'IA</li>
+                <li>L'hébergement gratuit sur GitHub Pages</li>
+                <li>La configuration de noms de domaine</li>
+                <li>Les bases de la personnalisation web</li>
+                <li>Le déploiement et la maintenance</li>
+            </ul>
+        </div>
+
+        <div class="intro-box">
+            <h2>📈 Aller plus loin</h2>
+            <p>Une fois que tu maîtrises cette méthode, tu peux :</p>
+            <ul>
+                <li>Créer des sites pour d'autres personnes (service payant)</li>
+                <li>Apprendre un peu de HTML/CSS pour plus de contrôle</li>
+                <li>Explorer d'autres plateformes d'hébergement</li>
+                <li>Te spécialiser dans un type de site (e-commerce, blog...)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CONTACT FINAL -->
+    <div class="contact-section">
+        <h2>💬 SUPPORT PERSONNEL INCLUS</h2>
+        <p style="font-size: 1.2em; margin-bottom: 30px;">
+            N'hésite JAMAIS à me contacter si :<br>
+            • Tu es bloqué à une étape<br>
+            • Tu veux une fonctionnalité spéciale<br>
+            • Tu as des idées de nouveaux projets<br>
+            • Tu veux améliorer un site existant
+        </p>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="icon">📱</span>
+                <h3>WhatsApp</h3>
+                <p>+229 54 71 06 30</p>
+            </div>
+            <div class="contact-item">
+                <span class="icon">✈️</span>
+                <h3>Telegram</h3>
+                <p>https://t.me/borissossoukpe</p>
+            </div>
+            <div class="contact-item">
+                <span class="icon">📧</span>
+                <h3>Email</h3>
+                <p>borissossoukpe@gmail.com</p>
+            </div>
+        </div>
+        
+        <p style="font-size: 1.3em; font-weight: 600; margin-top: 30px;">
+            <strong>Je suis là pour t'accompagner jusqu'au succès !</strong>
+        </p>
+        
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); font-style: italic;">
+            Formation créée par <strong>SOSSOUKPE Boris</strong> - Expert en IA et création web<br>
+            © 2024 - Tous droits réservés
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
