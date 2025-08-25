@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protégez-vous des Arnaques en Ligne - Guide Complet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -20px -20px 40px -20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 50px;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .section p, .section li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .benefits-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .testimonial {
+            background-color: #ecf0f1;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            margin: 30px 0;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .author {
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: right;
+        }
+
+        .cta-section {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px;
+            margin: 40px -20px -20px -20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border-bottom: none;
+            margin-bottom: 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: block;
+            padding: 18px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #e67e22;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        .guarantee {
+            background-color: #d5f4e6;
+            border: 2px solid #27ae60;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .guarantee h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        .urgent {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .urgent h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .buttons-container {
+                max-width: 100%;
+            }
+        }
+
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🛡️ STOP aux Arnaques en Ligne</h1>
+            <p>Le Guide Complet pour Protéger votre Argent et vos Données</p>
+            <div class="price-badge">Seulement 19,97€</div>
+        </header>
+
+        <section class="section">
+            <div class="urgent">
+                <h3>⚠️ ALERTE SÉCURITÉ</h3>
+                <p>Chaque jour, des milliers d'Européens perdent leur argent à cause d'arnaques en ligne de plus en plus sophistiquées. Ne soyez pas la prochaine victime !</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📖 Découvrez votre Bouclier Numérique</h2>
+            <p>Notre ebook de <strong>127 pages</strong> vous révèle TOUS les secrets pour déjouer les arnaques les plus courantes sur Internet. Rédigé par des experts en cybersécurité et adapté spécialement pour le public européen.</p>
+            
+            <p>Que vous soyez débutant ou utilisateur expérimenté, ce guide pratique vous donnera les clés pour naviguer en toute sécurité sur Internet et protéger efficacement vos finances.</p>
+        </section>
+
+        <section class="section">
+            <h2>🎯 Ce que vous allez apprendre</h2>
+            <ul class="benefits-list">
+                <li><strong>Identifier instantanément</strong> les 15 types d'arnaques les plus répandues en Europe</li>
+                <li><strong>Sécuriser vos achats en ligne</strong> avec des méthodes de paiement sûres</li>
+                <li><strong>Protéger vos données personnelles</strong> sur les réseaux sociaux et sites web</li>
+                <li><strong>Reconnaître les faux emails</strong> et messages de phishing</li>
+                <li><strong>Vérifier la fiabilité</strong> d'un site marchand en 30 secondes</li>
+                <li><strong>Réagir efficacement</strong> si vous êtes victime d'une arnaque</li>
+                <li><strong>Paramétrer correctement</strong> vos comptes bancaires en ligne</li>
+                <li><strong>Éduquer votre entourage</strong> pour une protection familiale complète</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>📋 Table des matières détaillée</h2>
+            <p><strong>Chapitre 1 :</strong> Les bases de la sécurité en ligne<br>
+            <strong>Chapitre 2 :</strong> Arnaques aux achats et marketplace<br>
+            <strong>Chapitre 3 :</strong> Phishing et usurpation d'identité<br>
+            <strong>Chapitre 4 :</strong> Arnaques sentimentales et réseaux sociaux<br>
+            <strong>Chapitre 5 :</strong> Investissements frauduleux et crypto-arnaques<br>
+            <strong>Chapitre 6 :</strong> Protection des données personnelles<br>
+            <strong>Chapitre 7 :</strong> Que faire en cas d'arnaque ?<br>
+            <strong>Bonus :</strong> Checklist de sécurité et ressources utiles</p>
+        </section>
+
+        <div class="testimonial">
+            <p>"Grâce à ce guide, j'ai évité de perdre 2000€ dans une fausse promotion crypto. Les explications sont claires et les exemples très concrets. Je le recommande à tous mes amis !"</p>
+            <p class="author">- Marie D., Lyon</p>
+        </div>
+
+        <div class="testimonial">
+            <p>"En tant que senior, j'avais peur d'Internet. Ce livre m'a redonné confiance et m'a appris à faire mes achats en ligne en toute sécurité."</p>
+            <p class="author">- Pierre M., Bruxelles</p>
+        </div>
+
+        <div class="guarantee">
+            <h3>🔒 Garantie Satisfait ou Remboursé 30 jours</h3>
+            <p>Si vous n'êtes pas entièrement satisfait de votre achat, nous vous remboursons intégralement sous 30 jours, sans question.</p>
+        </div>
+
+        <section class="cta-section">
+            <h2>🚀 Obtenez votre Protection dès Maintenant</h2>
+            <p>Téléchargement immédiat après paiement - Format PDF compatible tous appareils</p>
+            
+            <div class="buttons-container">
+                <a href="#" class="btn btn-primary" onclick="alert('Veuillez remplacer ce lien par votre URL Chariow')">
+                    💳 Payer par Carte Bancaire
+                </a>
+                <a href="https://t.me/clara_M_artin" class="btn btn-secondary" target="_blank">
+                    💬 Payer avec PayPal (Telegram)
+                </a>
+                <a href="https://wa.me/22954710630" class="btn btn-secondary" target="_blank">
+                    📱 Payer avec PayPal (WhatsApp)
+                </a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                Paiement 100% sécurisé - Vos données sont protégées
+            </p>
+        </section>
+    </div>
+</body>
+</html>
